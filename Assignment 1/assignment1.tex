@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{braket}
+\usepackage{mathtools}
+
+\def\H{\mathcal{H}}
+\def\B{\mathcal{B}}
+\def\C{\mathbb{C}}
+
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+
+\title{Assignment 1}
+\author{Daniel Gallo}
+
+\begin{document}
+    \maketitle
+
+    \begin{tcolorbox}[title=Exercise 1]
+        Consider a Hilbert space $\H$ with basis $\{\ket{1}, \ket{2}\}$ such that $\braket{1|1} = 5$, $\braket{1|2} = -3i$ and $\braket{2|2} = 2$.
+        \begin{enumerate}
+            \item Let $\ket{v} = (i\sqrt{2}, 3)$ and $\ket{w} = (2\sqrt{2}, 1 + 3i)$. Compute $\norm{\ket{v}}$, $\norm{\ket{w}}$ and $\braket{v | w}$.
+            \item Use Gram-Schmidt to obtain an orthonormal basis $\B$
+            \item Find the column vector representation of $(\alpha, \beta)$ with respect to $\B$.
+        \end{enumerate}
+    \end{tcolorbox}
+    \begin{enumerate}
+        \item 
+        \begin{equation*}
+            \braket{v | v} =
+            \begin{bmatrix}
+                -i\sqrt{2} & 3
+            \end{bmatrix}
+            \begin{bmatrix}
+                5 & -3i \\
+                3i & 2
+            \end{bmatrix}
+            \begin{bmatrix}
+                i\sqrt{2} \\
+                3
+            \end{bmatrix}
+            = 28 - 18\sqrt{2}
+        \end{equation*}
+        We can conclude that $\norm{\ket{v}} \approx 1.595$
+        \begin{equation*}
+            \braket{w | w} = 
+            \begin{bmatrix}
+                2\sqrt{2} & 1 - 3i
+            \end{bmatrix}
+            \begin{bmatrix}
+                5 & -3i \\
+                3i & 2
+            \end{bmatrix}
+            \begin{bmatrix}
+                2\sqrt{2} \\
+                1 + 3i
+            \end{bmatrix}
+            = 60 + 36\sqrt{2}
+        \end{equation*}
+        Thus, $\norm{\ket{w}} \approx 10.531$
+        \begin{equation*}
+            \braket{v | w} = 
+            \begin{bmatrix}
+                -i\sqrt{2} & 3
+            \end{bmatrix}
+            \begin{bmatrix}
+                5 & -3i \\
+                3i & 2
+            \end{bmatrix}
+            \begin{bmatrix}
+                2\sqrt{2} \\
+                1 + 3i
+            \end{bmatrix}
+            = 6 + 38i
+        \end{equation*}
+
+        \item We can set
+        \begin{align*}
+            \ket{v_1} &= \ket{1} \\
+            \ket{v_2} &= \ket{2} - \frac{\braket{1|2}}{\braket{1|1}} \ket{1} = \frac{3i}{5} \ket{1} + \ket{2}
+        \end{align*}
+        If we normalize them, we get,
+        \begin{align*}
+            \ket{e_1} &= \frac{1}{\sqrt{5}} \ket{1} \\
+            \ket{e_2} &= \frac{3}{\sqrt{5}}i \ket{1} + \sqrt{5}\ket{2}
+        \end{align*}
+
+        \item We want to find $x, y \in \C$ such that $x\ket{e_1} + y\ket{e_2} = \alpha\ket{1} + \beta\ket{2}$.
+        \begin{equation*}
+            \begin{bmatrix}
+                x \\
+                y
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \frac{1}{\sqrt{5}}  & 0 \\
+                \frac{3}{\sqrt{5}}i & \sqrt{5}
+            \end{bmatrix}^{-1}
+            \begin{bmatrix}
+                \alpha \\
+                \beta
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \sqrt{5} \alpha \\
+                -\frac{3}{\sqrt{5}}i + \frac{1}{\sqrt{5}} \beta
+            \end{bmatrix}
+        \end{equation*}
+    \end{enumerate}
+
+\end{document}
