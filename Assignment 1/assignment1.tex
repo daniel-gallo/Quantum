@@ -22,8 +22,15 @@
         Consider a Hilbert space $\H$ with basis $\{\ket{1}, \ket{2}\}$ such that $\braket{1|1} = 5$, $\braket{1|2} = -3i$ and $\braket{2|2} = 2$.
         \begin{enumerate}
             \item Let $\ket{v} = (i\sqrt{2}, 3)$ and $\ket{w} = (2\sqrt{2}, 1 + 3i)$. Compute $\norm{\ket{v}}$, $\norm{\ket{w}}$ and $\braket{v | w}$.
-            \item Use Gram-Schmidt to obtain an orthonormal basis $\B$
+            \item Use Gram-Schmidt to obtain an orthonormal basis $\B$.
             \item Find the column vector representation of $(\alpha, \beta)$ with respect to $\B$.
+            \item Find row vector representations for $\bra{v}$ and $\bra{w}$ with respect to to the dual basis $\B^*$
+            \item Let $\hat{A}$ be a linear operator on $\H$ such that
+            \begin{align*}
+                \hat{A} \ket{1} &= \ket{1} \\
+                \hat{A} \ket{2} &= -\frac{6i}{5} \ket{1} - \ket{2}
+            \end{align*}
+            Find the matrix representation of $\hat{A}$ with respecto to $\B$.
         \end{enumerate}
     \end{tcolorbox}
     \begin{enumerate}
@@ -105,9 +112,70 @@
             =
             \begin{bmatrix}
                 \sqrt{5} \alpha \\
-                -\frac{3}{\sqrt{5}}i + \frac{1}{\sqrt{5}} \beta
+                -\frac{3}{\sqrt{5}}i \alpha + \frac{1}{\sqrt{5}} \beta
             \end{bmatrix}
         \end{equation*}
+
+        \item Let's express $\ket{v}$ and $\ket{w}$ in $\B$.
+        \begin{equation*}
+            \ket{v} = 
+            \begin{bmatrix}
+                \sqrt{5} \left(i \sqrt{2}\right) \\
+                -\frac{3}{\sqrt{5}}i \left(i \sqrt{2}\right) + \frac{1}{\sqrt{5}} (3)
+            \end{bmatrix}_\B
+            = 
+            \begin{bmatrix}
+                \sqrt{10}i \\
+                \frac{3}{5} \left(\sqrt{10} + \sqrt{5}\right)
+            \end{bmatrix}_\B
+        \end{equation*}
+        \begin{equation*}
+            \ket{v} = 
+            \begin{bmatrix}
+                \sqrt{5} \left(2\sqrt{2}\right) \\
+                -\frac{3}{\sqrt{5}}i \left(2 \sqrt{2}\right) + \frac{1}{\sqrt{5}} (1 + 3i)
+            \end{bmatrix}_\B
+            = 
+            \begin{bmatrix}
+                2\sqrt{10} \\
+                \frac{\sqrt{5}}{5}\left(1 + \left(3 - 6\sqrt{2}\right)i\right)
+            \end{bmatrix}_\B
+        \end{equation*}
+        Since $\B$ is an orthonormal basis,
+        \begin{align*}
+            \bra{v} &=
+            \begin{bmatrix}
+                \sqrt{10}i & \frac{3}{5} \left(\sqrt{10} + \sqrt{5}\right)
+            \end{bmatrix} \\
+            \bra{w} &=
+            \begin{bmatrix}
+                2\sqrt{10} & \frac{\sqrt{5}}{5}\left(1 + \left(3 - 6\sqrt{2}\right)i\right)
+            \end{bmatrix}
+        \end{align*}
+
+        \item
+        Let $M$ be the chage of basis matrix (from $\B$ to the original one).
+        \begin{equation*}
+            M = 
+            \begin{bmatrix}
+                \frac{1}{\sqrt{5}}  & 0 \\
+                \frac{3}{\sqrt{5}}i & \sqrt{5}
+            \end{bmatrix}
+        \end{equation*}
+        Then,
+        \begin{align*}
+            A &= M^{-1}
+            \begin{bmatrix}
+                1 & -\frac{6i}{5} \\
+                0 & -1
+            \end{bmatrix}
+            M \\
+            &=
+            \begin{bmatrix}
+                4.6 & -6i \\
+                -3.36 & -4.6
+            \end{bmatrix}
+        \end{align*}
     \end{enumerate}
 
 \end{document}
