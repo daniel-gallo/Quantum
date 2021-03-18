@@ -9,8 +9,10 @@
 \def\H{\mathcal{H}}
 \def\B{\mathcal{B}}
 \def\C{\mathbb{C}}
-
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\tr}{tr}
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
 
 \title{Assignment 1}
 \author{Daniel Gallo}
@@ -176,6 +178,43 @@
                 -3.36 & -4.6
             \end{bmatrix}
         \end{align*}
+    \end{enumerate}
+
+    \begin{tcolorbox}[title=Exercise 2]
+        Let $\H$ be a finite-dimensional Hilbert space.
+        \begin{enumerate}
+            \item Recall the definition of the Hilbert-Schmidt inner product on $\End(\H)$. Explicitly show that it defines an inner product. 
+            \item Find an orthonormal basis on $\End(\H)$ with respect to this inner product. Express your solution in the outer product notation and state the dimension of $\End(\H)$.
+            \item Find an orthonormal basis of Hermitian matrices for $\End(\H)$ with respect to this inner product.
+        \end{enumerate}
+    \end{tcolorbox}
+
+    \begin{enumerate}
+        \item The Hilbert-Schmidt inner product is defined as follows
+        \begin{align*}
+            \langle\cdot,\cdot\rangle \colon \End(\H) &\to \End(\H) \\
+            A, B &\mapsto \tr(A^\dagger B)
+        \end{align*}
+        Let's verify that it is indeed an inner product.
+        \begin{enumerate}
+            \item \textbf{Linearity} in the second component
+            \begin{align*}
+                \langle A, \beta_1 B_1 + \beta_2 B_2\rangle &= \tr(A^\dagger (\beta_1 B_1 + \beta_2 B_2)) \\
+                &= \tr(\beta_1 A^\dagger B_1 + \beta_2 A^\dagger B_2) \\
+                &= \beta_1\tr(A^\dagger B_1) + \beta_2\tr(A^\dagger B_2) \\
+                &= \beta_1\langle A, B_1\rangle + \beta_2\langle A, B_2\rangle
+            \end{align*}
+            \item \textbf{Skew-symmetry}
+            \begin{align*}
+                \langle A, B\rangle &= \tr(A^\dagger B) = \tr((A^\dagger B)^\dagger)^*\\
+                &= \tr(B^\dagger A)^* = \langle B, A\rangle^*
+            \end{align*}
+            \item \textbf{Positive-definiteness}
+            \begin{equation*}
+                \langle A, A\rangle = \tr(A^\dagger A) = \sum_{i,j} \abs{A_{ij}}^2 \geq 0
+            \end{equation*}
+            Furthermore, $\sum_{i,j} \abs{A_{ij}}^2 = 0$ if and only if $A = 0$.
+        \end{enumerate}
     \end{enumerate}
 
 \end{document}
