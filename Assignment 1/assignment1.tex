@@ -11,6 +11,7 @@
 \def\C{\mathbb{C}}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
 
@@ -215,6 +216,15 @@
             \end{equation*}
             Furthermore, $\sum_{i,j} \abs{A_{ij}}^2 = 0$ if and only if $A = 0$.
         \end{enumerate}
+
+        \item 
+        \item Recall that the Hermitian matrices satisfy $A^\dagger = A$, so $A_{ij} = A_{ji}^*$, which means that diagonal elements must be purely real. If $\dim{\H} = n$ we will have a basis of $n^2$ elements. If we index those elements in an array-like form, we can create the basis elements as follows.
+        \begin{itemize}
+            \item If $i < j$, a matrix with $M_{ij} = \frac{1}{\sqrt{2}}$ and $M_{ji} = \frac{1}{\sqrt{2}}$ and $0$ elsewhere.
+            \item If $i = j$, a matrix with a one in the $i$th element of the diagonal, and $0$ elsewhere.
+            \item If $i > j$, a matrix with $M_{ij} = \frac{i}{\sqrt{2}}$ and $M_{ji} = -\frac{i}{\sqrt{2}}$ and $0$ elsewhere.
+        \end{itemize}
+        All basis elements have length 1, which can be easily seen by noting that $\langle M, M\rangle = \tr(M^\dagger M) = \sum_{i,j} \abs{M_{ij}}^2 = 1$. Now we have to prove that the elements are indeed orthogonal.
     \end{enumerate}
     
     \begin{tcolorbox}[title=Exercise 3]
