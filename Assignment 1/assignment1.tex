@@ -15,6 +15,8 @@
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
 
+\setlength\parindent{0pt}
+
 \title{Assignment 1}
 \author{Daniel Gallo}
 
@@ -242,4 +244,34 @@
         \end{enumerate}
     \end{tcolorbox}
 
+    \begin{tcolorbox}[title=Exercise 4]
+        Consider the commutator
+        \begin{equation*}
+            \left[\underbrace{x^a \frac{d^2}{dx^2}}_A, \underbrace{x^b \frac{d}{dx}}_B\right]
+        \end{equation*}
+        and find the values of $a$ and $b$ for which it vanishes. Show that any eigenstate of $x\frac{d}{dx}$ with eigenvalue $\lambda$ is also an eigenstate of $x^2\frac{d^2}{dx^2}$ and find the corresponding eigenvalue.
+    \end{tcolorbox}
+    The commutator vanishes if and only if $AB = BA$.
+    \begin{align*}
+        AB &= \sum_{i=1}^\infty n (b + n - 1) (b + n - 2) a_n x^{a + b + n - 3} \\
+        BA &= \sum_{i=1}^\infty n (n + 1) (a + n - 1) a_{n + 1} x^{a + b + n - 2}
+    \end{align*}
+    Note that we need the terms $a_j x^{a + b + j - 3}$ to align up, since the sum has to hold for every $n$ and $x$. Also note that $AB$ has an extra term including $a_1 x^{a + b - 2}$ that $BA$ does not. This term is
+    \begin{equation*}
+        b (b - 1) a_1 x^{a + b - 2}
+    \end{equation*}
+    To get rid of it, we need to set $b = 0$ or $b = 1$. To find out the value of $a$, let us shift the $AB$ sum so it doesn't include its first term.
+    \begin{align*}
+        AB &= \sum_{i=1}^\infty (n + 1) (b + n) (b + n - 1) a_{n + 1} x^{a + b + n - 2} \\
+        BA &= \sum_{i=1}^\infty n (n + 1) (a + n - 1) a_{n + 1} x^{a + b + n - 2}
+    \end{align*}
+    Setting $b = 0$, we get
+    \begin{equation*}
+        n (n - 1) = n (a + n - 1) \implies a = 0
+    \end{equation*}
+    Setting $b = 1$, we get
+    \begin{equation*}
+        n (n + 1) = n (a + n - 1) \implies a = 2
+    \end{equation*}
+    Thus, if $(a, b) = (0, 0)$ or $(a, b) = (2, 1)$ the commutator vanishes.
 \end{document}
