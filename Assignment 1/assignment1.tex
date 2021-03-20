@@ -274,4 +274,61 @@
         n (n + 1) = n (a + n - 1) \implies a = 2
     \end{equation*}
     Thus, if $(a, b) = (0, 0)$ or $(a, b) = (2, 1)$ the commutator vanishes.
+
+    \begin{tcolorbox}[title=Exercise 5]
+        Let $\H$ be a finite-dimensional Hilbert space.
+        \begin{enumerate}
+            \item Show that for any linear operators $\hat{A}$ and $\hat{B}$, and for any $\ket{v}, \ket{w} \in \H$ we have
+            \begin{equation*}
+                \left(\braket{v|\hat{A}|w}B\right)^\dagger = \braket{w|\hat{A}|v}B^\dagger
+            \end{equation*}
+            \item Show (without using the spectral theorem) that the eigenspaces of a unitary operator on $\H$ are mutually orthogonal
+            \item Sow that a positive operator on $\H$ has a unique positive square root. You may use the spectral theorem and the fact that a positive operator is necessarily Hermitian.
+        \end{enumerate}
+    \end{tcolorbox}
+    \begin{enumerate}
+        \item \begin{align*}
+            \left(\braket{v|\hat{A}|w}B\right)^\dagger &= \braket{v|\hat{A}|w}^* B^\dagger & \text{since $\braket{v|\hat{A}|w}$ is a number} \\
+            &= \braket{v|\hat{A}|w}^\dagger B^\dagger & \text{$\dagger$ and $*$ are the same for numbers} \\
+            &= \braket{w|\hat{A}^\dagger|v} B^\dagger & \text{by the reverse property of $\dagger$} \\
+        \end{align*}
+        \item First we will show that the eigenvalues of a unitary operator lie in the unit circle. Let $\ket{v}$ be an eigenvector of the eigenvalue $\lambda$, that is, $\hat{A}\ket{v} = \lambda \ket{v}$. Then,
+        \begin{align*}
+            \hat{A}\ket{v} \cdot \hat{A}\ket{v} &= \braket{v | \hat{A}^\dagger \hat{A} | v} = \braket{v | v} \\
+            &= \lambda \ket{v} \cdot \lambda \ket{v} = \abs{\lambda}^2 \braket{v | v}
+        \end{align*}
+        Since $\ket{v} \neq 0$, $\abs{\lambda}^2$ = 1. To prove that the eigenspaces are orthogonal, take $\ket{v} \in E_{\lambda_1}$ and $\ket{w} \in E_{\lambda_2}$. Because of what we have just proved, we can assume
+        \begin{align*}
+            \hat{A} \ket{v} &= e^{i\theta_1} \ket{v} \\
+            \hat{A} \ket{w} &= e^{i\theta_2} \ket{w}
+        \end{align*}
+        If we compute $\hat{A} \ket{v} \cdot \hat{A} \ket{w}$ we get
+        \begin{equation*}
+            \braket{v | w} = e^{i(\theta_2 - \theta_1)} \braket{v | w}
+        \end{equation*}
+        Since $e^{i\theta_1}$ was supposed to be different than $e^{i\theta_2}$, we can conclude that $\braket{v | w} = 0$, that is $\ket{v}$ and $\ket{w}$ are orthogonal.
+        \item First we will prove that there exists at least one positive square root. Let $A$ be a matrix representation of the positive operator $\hat{A}$. Since $\hat{A}$ is positive, $\hat{A}$ is Hermitian, and by the \textit{Spectral Theorem} we can express $A$ as follows
+        \begin{equation*}
+            A = P D P^{-1} = P
+            \begin{bmatrix}
+                \lambda_1&&& \\
+                &\lambda_2&& \\
+                &&\ddots \\
+                &&&\lambda_n
+            \end{bmatrix}
+            P^{-1}
+        \end{equation*}
+        Since we know that $\hat{A}$ is positive, $\lambda_i \geq 0$ for all $i$, and we can define $\sqrt{A}$ as
+        \begin{equation*}
+            \sqrt{A} = P \sqrt{D} P^{-1} = P
+            \begin{bmatrix}
+                \sqrt{\lambda_1}&&& \\
+                &\sqrt{\lambda_2}&& \\
+                &&\ddots \\
+                &&&\sqrt{\lambda_n}
+            \end{bmatrix}
+            P^{-1}
+        \end{equation*}
+        As one can easily check, $\sqrt{A}\sqrt{A} = P \sqrt{D} P^{-1} P \sqrt{D} P^{-1} = P D P^{-1} = A$. Note that $\sqrt{A}$ is still positive because $\sqrt{\lambda_i} \geq 0$ for all $i$. TODO (uniqueness)
+    \end{enumerate}
 \end{document}
