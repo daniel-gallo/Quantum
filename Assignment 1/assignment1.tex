@@ -358,7 +358,7 @@
         \end{enumerate}
         \item $M_2(\C)$ has dimension 4, and $\{\sigma_i\}_{i=0}^3$ has 4 elements, so we just have to prove that all of them are mutually orthogonal. Recall that the Hilbert-Schmidt's inner product is defined as
         \begin{align*}
-            \langle\cdot,\cdot\rangle \colon \End(\H) &\to \End(\H) \\
+            \langle\cdot,\cdot\rangle \colon M_2(\C) &\to M_2(\C) \\
             A, B &\mapsto \tr(A^\dagger B) = \sum_{ij} A_{ij}^* B_{ij}
         \end{align*}
         Checking the six possible combinations $\langle \sigma_i, \sigma_j \rangle$ for $0 \leq i < j \leq 3$, we see that in fact they are mutually orthogonal.
@@ -371,6 +371,8 @@
         \end{equation*}
         and find the values of $a$ and $b$ for which it vanishes. Show that any eigenstate of $x\frac{d}{dx}$ with eigenvalue $\lambda$ is also an eigenstate of $x^2\frac{d^2}{dx^2}$ and find the corresponding eigenvalue.
     \end{tcolorbox}
+    \textit{At first I thought that functions applied by these operators were polynomial, but then I worked it out for more general smooth functions (with at least three derivatives)} \par
+    \subsubsection*{For polynomial}
     The commutator vanishes if and only if $AB = BA$.
     \begin{align*}
         AB &= \sum_{i=1}^\infty n (b + n - 1) (b + n - 2) a_n x^{a + b + n - 3} \\
@@ -393,8 +395,29 @@
     \begin{equation*}
         n (n + 1) = n (a + n - 1) \implies a = 2
     \end{equation*}
-    Thus, if $(a, b) = (0, 0)$ or $(a, b) = (2, 1)$ the commutator vanishes.
-
+    Thus, if $(a, b) = (0, 0)$ or $(a, b) = (2, 1)$ the commutator vanishes. \par
+    
+    \subsubsection*{For smooth functions}
+    \begin{align*}
+        AB(f) &= b (b - 1) x^{a + b - 2} f'(x) + 2 b x^{a + b - 1} f''(x) + x^{a + b} f'''(x) \\
+        BA(f) &= a x^{a + b - 1} f''(x) + x^{a + b} f'''(x)
+    \end{align*}
+    We can see that we need $b = 0$ or $b = 1$ and $2b = a$, so $(a, b) = (0, 0)$ or $(a, b) = (2, 1)$, as before. \par
+    If $x \frac{d}{dx}$ has eigenvalue $\lambda$, that means that 
+    \begin{equation}
+        \label{eq:ode}
+        x f'(x) = \lambda f(x)
+    \end{equation}
+    If we differentiate \eqref{eq:ode}, we get
+    \begin{equation*}
+        f'(x) + xf''(x) = \lambda f'(x)
+    \end{equation*}
+    Multiplying by $x$ and rearranging,
+    \begin{align*}
+        x^2 f''(x) &= (\lambda - 1) x f'(x) & \text{By \eqref{eq:ode}}\\
+        &= (\lambda - 1) \lambda f(x)
+    \end{align*}
+    We can conclude that any eigenstate of $x \frac{d}{dx}$ with eigenvalue $\lambda$ is an eigenstate of $x^2 \frac{d^2}{dx^2}$ with eigenvalue $(\lambda - 1) \lambda$.
     \begin{tcolorbox}[title=Exercise 5]
         Let $\H$ be a finite-dimensional Hilbert space.
         \begin{enumerate}
@@ -403,7 +426,7 @@
                 \left(\braket{v|\hat{A}|w}B\right)^\dagger = \braket{w|\hat{A}|v}B^\dagger
             \end{equation*}
             \item Show (without using the spectral theorem) that the eigenspaces of a unitary operator on $\H$ are mutually orthogonal
-            \item Sow that a positive operator on $\H$ has a unique positive square root. You may use the spectral theorem and the fact that a positive operator is necessarily Hermitian.
+            \item Show that a positive operator on $\H$ has a unique positive square root. You may use the spectral theorem and the fact that a positive operator is necessarily Hermitian.
         \end{enumerate}
     \end{tcolorbox}
     \begin{enumerate}
