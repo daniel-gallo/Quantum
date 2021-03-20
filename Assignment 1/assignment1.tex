@@ -244,6 +244,126 @@
         \end{enumerate}
     \end{tcolorbox}
 
+    \begin{enumerate}
+        \item Recall that the eigenvalues are obtained by solving $\det(\sigma_j - \lambda I) = 0$. To obtain the eigenvectors (the columns of the change of basis matrix) we have to find $\ker(\sigma_j - \lambda I)$. Since the Pauli matrices are Hermitian, we can diagonalize them. In fact, by the \textit{Spectral Theorem} we can find an orthonormal basis of the 
+        \begin{enumerate}
+            \item
+            \begin{equation*}
+                \sigma_0 =
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}
+                =
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}
+                }_P
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}
+                }_D
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}^{-1}
+                }_{P^{-1}}
+            \end{equation*}
+            \item
+            \begin{equation*}
+                \sigma_1 =
+                \begin{bmatrix}
+                    0 & 1 \\
+                    1 & 0
+                \end{bmatrix}
+                =
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 1 \\
+                    1 & -1
+                \end{bmatrix}
+                }_P
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & -1
+                \end{bmatrix}
+                }_D
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 1 \\
+                    1 & -1
+                \end{bmatrix}^{-1}
+                }_{P^{-1}}
+            \end{equation*}
+            \item
+            \begin{equation*}
+                \sigma_2 =
+                \begin{bmatrix}
+                    0 & -i \\
+                    i & 0
+                \end{bmatrix}
+                =
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 1 \\
+                    i & -i
+                \end{bmatrix}
+                }_P
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & -1
+                \end{bmatrix}
+                }_D
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 1 \\
+                    i & -i
+                \end{bmatrix}^{-1}
+                }_{P^{-1}}
+            \end{equation*}
+            \item
+            \begin{equation*}
+                \sigma_3 =
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & -1
+                \end{bmatrix}
+                =
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}
+                }_P
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & -1
+                \end{bmatrix}
+                }_D
+                \underbrace{
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}^{-1}
+                }_{P^{-1}}
+            \end{equation*}
+        \end{enumerate}
+        \item $M_2(\C)$ has dimension 4, and $\{\sigma_i\}_{i=0}^3$ has 4 elements, so we just have to prove that all of them are mutually orthogonal. Recall that the Hilbert-Schmidt's inner product is defined as
+        \begin{align*}
+            \langle\cdot,\cdot\rangle \colon \End(\H) &\to \End(\H) \\
+            A, B &\mapsto \tr(A^\dagger B) = \sum_{ij} A_{ij}^* B_{ij}
+        \end{align*}
+        Checking the six possible combinations $\langle \sigma_i, \sigma_j \rangle$ for $0 \leq i < j \leq 3$, we see that in fact they are mutually orthogonal.
+        \item TODO
+    \end{enumerate}
     \begin{tcolorbox}[title=Exercise 4]
         Consider the commutator
         \begin{equation*}
