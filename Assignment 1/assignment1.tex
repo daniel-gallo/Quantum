@@ -256,13 +256,13 @@
                 \left[\sigma_j, \sigma_k\right] = 2i\sum_{l=1}^3 \epsilon_{jkl} \sigma_l
             \end{equation*}
             \begin{equation*}
-                \sigma_j \sigma_k = \delta_{jk}\sigma_0 + i\sum_{l=1}^3 \epsilon_{jkl} \sigma{l} 
+                \sigma_j \sigma_k = \delta_{jk}\sigma_0 + i\sum_{l=1}^3 \epsilon_{jkl} \sigma_l 
             \end{equation*}
         \end{enumerate}
     \end{tcolorbox}
 
     \begin{enumerate}
-        \item Recall that the eigenvalues are obtained by solving $\det(\sigma_j - \lambda I) = 0$. To obtain the eigenvectors (the columns of the change of basis matrix) we have to find $\ker(\sigma_j - \lambda I)$. Since the Pauli matrices are Hermitian, we can diagonalize them. In fact, by the \textit{Spectral Theorem} we can find an orthonormal basis of the 
+        \item Recall that the eigenvalues are obtained by solving $\det(\sigma_j - \lambda I) = 0$. To obtain the eigenvectors (the columns of the change of basis matrix) we have to find $\ker(\sigma_j - \lambda I)$. Since the Pauli matrices are Hermitian, we can diagonalize them.
         \begin{enumerate}
             \item
             \begin{equation*}
@@ -379,7 +379,23 @@
             A, B &\mapsto \tr(A^\dagger B) = \sum_{ij} A_{ij}^* B_{ij}
         \end{align*}
         Checking the six possible combinations $\langle \sigma_i, \sigma_j \rangle$ for $0 \leq i < j \leq 3$, we see that in fact they are mutually orthogonal.
-        \item TODO
+        \item
+        \begin{itemize}
+            \item If $j = k$, the commutator vanishes and $\epsilon_{jkl} = 0$ for all $l$ because there are two indices which are equal. Therefore the equation holds in that case. If $j$ and $k$ are different, note that $\left[\sigma_j, \sigma_k\right] = -\left[\sigma_k, \sigma_j\right]$ and that $\epsilon_{jkl} = -\epsilon_{kjl}$, since the parity of the permutation changes. Thus, we only have to check the following cases:
+            \begin{align*}
+                \left[\sigma_1, \sigma_2\right] &= 2i\sigma_3 \\
+                \left[\sigma_1, \sigma_3\right] &= -2i\sigma_2 \\
+                \left[\sigma_2, \sigma_3\right] &= 2i\sigma_1 \\
+            \end{align*}
+            \item If $j = k$ the equation holds because the Pauli matrices are idempotent ($\sigma_j \sigma_k = I = \sigma_0$) and $\epsilon_{jkl} = 0$ for all $l$. If $j$ and $k$ are different, note that $\sigma_j \sigma_k = -\sigma_k \sigma_j$.
+            \begin{equation*}
+                \left[\sigma_j, \sigma_k\right] = \sigma_j \sigma_k - \sigma_k \sigma_j = 2\sigma_j\sigma_k
+            \end{equation*}
+            Using the previous result, we conclude that if $j \neq k$, 
+            \begin{equation*}
+                \sigma_j\sigma_k = \frac{\left[\sigma_j, \sigma_k\right]}{2} = i\sum_{l=1}^3 \epsilon_{jkl} \sigma_l
+            \end{equation*}.
+        \end{itemize}
     \end{enumerate}
     \begin{tcolorbox}[title=Exercise 4]
         Consider the commutator
