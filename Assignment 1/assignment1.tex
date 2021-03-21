@@ -236,7 +236,25 @@
             Furthermore, $\sum_{i,j} \abs{A_{ij}}^2 = 0$ if and only if $A = 0$.
         \end{enumerate}
 
-        \item 
+        \item First we have to find an orthonormal basis $\bar{\B} = \left\{\ket{1}, \dots, \ket{n}\right\}$ for $\H$. Then, an orthonormal basis for $\End(\H)$ is given by
+        \begin{equation*}
+            \B = \left\{\ket{i} \bra{j}\right\}_{i, j = 1}^n
+        \end{equation*}
+        To prove this, take two elements from $\B$, $\ket{i} \bra{j}$ and $\ket{k} \bra{l}$ and consider its inner product. We will change the notation for clarity's sake.
+        \begin{equation*}
+            \langle i j^\dagger, k l^\dagger\rangle = \tr (j \underbrace{i^\dagger k}_{\text{scalar}} l^\dagger)
+        \end{equation*}
+        If $i \neq k$ we get that $\ket{i} \bra{j}$ and $\ket{k} \bra{l}$ are orthogonal, as we wanted. If they are equal,
+        \begin{equation*}
+            \langle i j^\dagger, k l^\dagger\rangle = \tr (j l^\dagger) = \tr
+                \begin{bmatrix}
+                    j_{1} l_{1}^*&& \\
+                    &\ddots& \\
+                    &&j_{n} l_{n}^*
+                \end{bmatrix}
+            = \braket{l | j}
+        \end{equation*}
+        If $l = j$ (and $i = k$), we get that $\langle i j^\dagger, k l^\dagger\rangle = 1$ and if  $l \neq j$ (and $i = k$), that $\langle i j^\dagger, k l^\dagger\rangle = 0$.
         \item Recall that the Hermitian matrices satisfy $A^\dagger = A$, so $A_{ij} = A_{ji}^*$, which means that diagonal elements must be purely real. If $\dim{\H} = n$ we will have a basis of $n^2$ elements. If we index those elements in an array-like form, we can create the basis elements as follows.
         \begin{itemize}
             \item If $i < j$, a matrix with $M_{ij} = \frac{1}{\sqrt{2}}$ and $M_{ji} = \frac{1}{\sqrt{2}}$ and $0$ elsewhere.
