@@ -100,61 +100,78 @@
         \end{align*}
 
         \item We want to find $x, y \in \C$ such that $x\ket{e_1} + y\ket{e_2} = \alpha\ket{1} + \beta\ket{2}$.
-        \begin{equation*}
+        \begin{align*}
             \begin{bmatrix}
                 x \\
                 y
             \end{bmatrix}
-            =
+            &=
             \begin{bmatrix}
-                \frac{1}{\sqrt{5}}  & 0 \\
-                \frac{3}{\sqrt{5}}i & \sqrt{5}
+                \frac{1}{\sqrt{5}}  & \frac{3i}{\sqrt{5}} \\
+                0 & \sqrt{5}
             \end{bmatrix}^{-1}
             \begin{bmatrix}
                 \alpha \\
                 \beta
             \end{bmatrix}
-            =
+            = \\
+            &=
             \begin{bmatrix}
-                \sqrt{5} \alpha \\
-                -\frac{3}{\sqrt{5}}i \alpha + \frac{1}{\sqrt{5}} \beta
+                \sqrt{5} & \frac{-3i}{\sqrt{5}} \\
+                0 & \frac{1}{\sqrt{5}}
             \end{bmatrix}
-        \end{equation*}
+            \begin{bmatrix}
+                \alpha \\
+                \beta
+            \end{bmatrix} = 
+            \begin{bmatrix}
+                \sqrt{5} \alpha -\frac{3i\beta}{\sqrt{5}} \\
+                \frac{\beta}{\sqrt{5}}
+            \end{bmatrix}
+        \end{align*}
 
         \item Let's express $\ket{v}$ and $\ket{w}$ in $\B$.
         \begin{equation*}
             \ket{v} = 
             \begin{bmatrix}
-                \sqrt{5} \left(i \sqrt{2}\right) \\
-                -\frac{3}{\sqrt{5}}i \left(i \sqrt{2}\right) + \frac{1}{\sqrt{5}} (3)
-            \end{bmatrix}_\B
-            = 
+                \sqrt{5} & \frac{-3i}{\sqrt{5}} \\
+                0 & \frac{1}{\sqrt{5}}
+            \end{bmatrix}
             \begin{bmatrix}
-                \sqrt{10}i \\
-                \frac{3}{5} \left(\sqrt{10} + \sqrt{5}\right)
-            \end{bmatrix}_\B
+                \sqrt{2}i \\
+                3
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \frac{i}{\sqrt{5}} (-9 + 5\sqrt{2})\\
+                \frac{3}{\sqrt{5}}
+            \end{bmatrix}
         \end{equation*}
         \begin{equation*}
-            \ket{v} = 
+            \ket{w} = 
             \begin{bmatrix}
-                \sqrt{5} \left(2\sqrt{2}\right) \\
-                -\frac{3}{\sqrt{5}}i \left(2 \sqrt{2}\right) + \frac{1}{\sqrt{5}} (1 + 3i)
-            \end{bmatrix}_\B
-            = 
+                \sqrt{5} & \frac{-3i}{\sqrt{5}} \\
+                0 & \frac{1}{\sqrt{5}}
+            \end{bmatrix}
             \begin{bmatrix}
-                2\sqrt{10} \\
-                \frac{\sqrt{5}}{5}\left(1 + \left(3 - 6\sqrt{2}\right)i\right)
-            \end{bmatrix}_\B
+                2\sqrt{2} \\
+                1 + 3i
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \frac{1}{\sqrt{5}} (9 + 10\sqrt{2} - 3i)\\
+                \frac{1}{\sqrt{5}} (1 + 3i)
+            \end{bmatrix}
         \end{equation*}
         Since $\B$ is an orthonormal basis,
         \begin{align*}
             \bra{v} &=
             \begin{bmatrix}
-                \sqrt{10}i & \frac{3}{5} \left(\sqrt{10} + \sqrt{5}\right)
+                \frac{i}{\sqrt{5}} (9 - 5\sqrt{2}) & \frac{3}{\sqrt{5}}
             \end{bmatrix} \\
             \bra{w} &=
             \begin{bmatrix}
-                2\sqrt{10} & \frac{\sqrt{5}}{5}\left(1 + \left(3 - 6\sqrt{2}\right)i\right)
+                \frac{1}{\sqrt{5}} (9 + 10\sqrt{2} + 3i) & \frac{1}{\sqrt{5}} (1 - 3i)
             \end{bmatrix}
         \end{align*}
 
@@ -163,8 +180,8 @@
         \begin{equation*}
             M = 
             \begin{bmatrix}
-                \frac{1}{\sqrt{5}}  & 0 \\
-                \frac{3}{\sqrt{5}}i & \sqrt{5}
+                \frac{1}{\sqrt{5}}  & \frac{3i}{\sqrt{5}} \\
+                0 & \sqrt{5}
             \end{bmatrix}
         \end{equation*}
         Then,
@@ -177,8 +194,8 @@
             M \\
             &=
             \begin{bmatrix}
-                4.6 & -6i \\
-                -3.36 & -4.6
+                1 & 0 \\
+                0 & -1
             \end{bmatrix}
         \end{align*}
     \end{enumerate}
