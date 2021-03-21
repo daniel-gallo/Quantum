@@ -236,7 +236,7 @@
             Furthermore, $\sum_{i,j} \abs{A_{ij}}^2 = 0$ if and only if $A = 0$.
         \end{enumerate}
 
-        \item First we have to find an orthonormal basis $\bar{\B} = \left\{\ket{1}, \dots, \ket{n}\right\}$ for $\H$. Then, an orthonormal basis for $\End(\H)$ is given by
+        \item First we have to find an orthonormal basis $\bar{\B} = \left\{\ket{1}, \dots, \ket{n}\right\}$ for $\H$. Then, an orthonormal basis for $\End(\H)$ (which has dimension $n^2$) is given by
         \begin{equation*}
             \B = \left\{\ket{i} \bra{j}\right\}_{i, j = 1}^n
         \end{equation*}
@@ -261,7 +261,14 @@
             \item If $i = j$, a matrix with a one in the $i$th element of the diagonal, and $0$ elsewhere.
             \item If $i > j$, a matrix with $M_{ij} = \frac{i}{\sqrt{2}}$ and $M_{ji} = -\frac{i}{\sqrt{2}}$ and $0$ elsewhere.
         \end{itemize}
-        All basis elements have length 1, which can be easily seen by noting that $\langle M, M\rangle = \tr(M^\dagger M) = \sum_{i,j} \abs{M_{ij}}^2 = 1$. Now we have to prove that the elements are indeed orthogonal.
+        All basis elements have length 1, which can be easily seen by noting that $\langle M, M\rangle = \tr(M^\dagger M) = \sum_{i,j} \abs{M_{ij}}^2 = 1$. Now we have to prove that the elements are indeed orthogonal. The inner product of two different matrices withing the same class (created with the same rule) is going to be zero, because the non-zero elements are going to be in different positions. The same thing happens when computing the inner product of a matrix of the diagonal class with any other (different) matrix. If one of the matrices is in the $i < j$ class and the other in the $i > j$ class, two things could happen:
+        \begin{itemize}
+            \item If the non-zero elements are in different positions the inner product is going to be zero.
+            \item If the non-zero elements are in the same positions, the inner product will be
+            \begin{equation*}
+                \langle A, B \rangle = \frac{1}{\sqrt{2}} \frac{i}{\sqrt{2}} - \frac{1}{\sqrt{2}} \frac{i}{\sqrt{2}} = 0
+            \end{equation*} 
+        \end{itemize}
     \end{enumerate}
     
     \begin{tcolorbox}[title=Exercise 3]
