@@ -412,7 +412,28 @@
                 \left[\sigma_1, \sigma_3\right] &= -2i\sigma_2 \\
                 \left[\sigma_2, \sigma_3\right] &= 2i\sigma_1 \\
             \end{align*}
-            \item If $j = k$ the equation holds because the Pauli matrices are idempotent ($\sigma_j \sigma_k = I = \sigma_0$) and $\epsilon_{jkl} = 0$ for all $l$. If $j$ and $k$ are different, note that $\sigma_j \sigma_k = -\sigma_k \sigma_j$.
+            \item If $j = k$ the equation holds because the Pauli matrices are involutory ($\sigma_j \sigma_j = I = \sigma_0$) and $\epsilon_{jjl} = 0$ for all $l$. If $j$ and $k$ are different, note that $\sigma_j \sigma_k = -\sigma_k \sigma_j$.
+            \begin{align*}
+                \sigma_1 \sigma_2 &= 
+                \begin{bmatrix}
+                    i & 0 \\
+                    0 & -i
+                \end{bmatrix}
+                = -\sigma_2 \sigma_1 \\
+                \sigma_1 \sigma_3 &= 
+                \begin{bmatrix}
+                    0 & -1 \\
+                    1 & 0
+                \end{bmatrix}
+                = -\sigma_3 \sigma_1 \\
+                \sigma_2 \sigma_3 &= 
+                \begin{bmatrix}
+                    0 & i \\
+                    i & 0
+                \end{bmatrix}
+                = -\sigma_3 \sigma_2 \\
+            \end{align*}
+            Then,
             \begin{equation*}
                 \left[\sigma_j, \sigma_k\right] = \sigma_j \sigma_k - \sigma_k \sigma_j = 2\sigma_j\sigma_k
             \end{equation*}
