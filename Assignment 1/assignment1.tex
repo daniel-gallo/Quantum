@@ -529,7 +529,9 @@
             \braket{v | w} = e^{i(\theta_2 - \theta_1)} \braket{v | w}
         \end{equation*}
         Since $e^{i\theta_1}$ was supposed to be different than $e^{i\theta_2}$, we can conclude that $\braket{v | w} = 0$, that is $\ket{v}$ and $\ket{w}$ are orthogonal.
-        \item First we will prove that there exists at least one positive square root. Let $A$ be a matrix representation of the positive operator $\hat{A}$. Since $\hat{A}$ is positive, $\hat{A}$ is Hermitian, and by the \textit{Spectral Theorem} we can express $A$ as follows
+        \item 
+        \subsubsection*{Existence}
+        Let $A$ be a matrix representation of the positive operator $\hat{A}$. Since $\hat{A}$ is positive, $\hat{A}$ is Hermitian, and by the \textit{Spectral Theorem} we can express $A$ as follows
         \begin{equation*}
             A = P D P^{-1} = P
             \begin{bmatrix}
@@ -551,6 +553,17 @@
             \end{bmatrix}
             P^{-1}
         \end{equation*}
-        As one can easily check, $\sqrt{A}\sqrt{A} = P \sqrt{D} P^{-1} P \sqrt{D} P^{-1} = P D P^{-1} = A$. Note that $\sqrt{A}$ is still positive because $\sqrt{\lambda_i} \geq 0$ for all $i$. TODO (uniqueness)
+        As one can easily check, $\sqrt{A}\sqrt{A} = P \sqrt{D} P^{-1} P \sqrt{D} P^{-1} = P D P^{-1} = A$. Note that $\sqrt{A}$ is still positive because $\sqrt{\lambda_i} \geq 0$ for all $i$.
+        \subsubsection*{Uniqueness}
+        Let $B$ be the square root the above method gives us and let us assume that $C$ is a square root of $A$ as well. Now we construct a polynomial $p$ such that $p(\lambda_i) = \sqrt{\lambda_i}$ for every $\lambda_i$. Then, $p(D) = \sqrt{D}$ and
+        \begin{equation*}
+            p(C^2) = p(A) = p(P D P^{-1}) = P \sqrt{D} P^{-1} = B
+        \end{equation*}
+        Since we have expressed $B$ as a polynomial of $C^2$, we can see that $C$ and $B$ commute. This is useful because there is a well-known theorem in Lineal Algebra saying that we can simultaneously diagonalize two Hermitian matrices if they commute.
+        \begin{align*}
+            B = U \Lambda_1 U^{-1} \\
+            C = U \Lambda_2 U^{-1}\\
+        \end{align*}
+        Now, since we know that $B^2 = C^2 = A$, we can see that $\Lambda_1^2 = \Lambda_2^2$, which means that $\Lambda_1 = \Lambda_2$, because $B$ and $C$ are positive operators. Thus, $B = C$, as we wanted.
     \end{enumerate}
 \end{document}
